@@ -10,6 +10,9 @@ public class playerMove : MonoBehaviour
     float horizontal;
     float vertical;
 
+    public int maxHealth;
+    int currentHealth;
+
     //Animator animator;
     Vector2 lookDirection = new Vector2(1,0);
 
@@ -20,6 +23,8 @@ public class playerMove : MonoBehaviour
     {
         //animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -71,5 +76,12 @@ public class playerMove : MonoBehaviour
 
 
 
+    }
+
+   
+
+    public void ChangeHealth(int healthChange)
+    {
+        currentHealth -= healthChange;
     }
 }

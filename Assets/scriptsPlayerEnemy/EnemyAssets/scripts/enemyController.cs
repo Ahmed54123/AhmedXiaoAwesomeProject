@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public int enemyDamager;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //check if the object is the player
+        playerMove playerRef = collision.gameObject.GetComponent<playerMove>();
+        if (playerRef != null)
+        {
+            playerRef.ChangeHealth(enemyDamager);
+        }
     }
 }
